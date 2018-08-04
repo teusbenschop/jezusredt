@@ -13,12 +13,21 @@ export PATH=$PATH:~/scr/android-sdk-macosx/platform-tools:~/scr/android-sdk-maco
 
 
 # Compile and run the website generator.
-g++ -Wall -Wextra -pedantic -std=c++11 -O3 generator.cpp -o generator
+g++ -Wall -Wextra -pedantic -std=c++11 generator.cpp -o generator
 EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then
 exit
 fi
+pushd contents
+../generator
+EXIT_CODE=$?
+if [ $EXIT_CODE != 0 ]; then
+exit
+fi
+popd
 
+
+exit
 
 # Clean binaries.
 ant clean
@@ -31,8 +40,8 @@ fi
 # Create assets index.
 # mkdir -p assets/external
 # rsync -a jni/* assets/external
-find assets -name ".deps" -exec rm -r "{}" \; > /dev/null 2>&1
-find assets -name ".dirstamp" -delete
+# find assets -name ".deps" -exec rm -r "{}" \; > /dev/null 2>&1
+# find assets -name ".dirstamp" -delete
 # ant createAssetIndexExternal
 
 
