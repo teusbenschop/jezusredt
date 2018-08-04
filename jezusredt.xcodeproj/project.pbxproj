@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		CA54F46E211604CC009DC3B9 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
+		CA54F46F211604EB009DC3B9 /* generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = generator.cpp; sourceTree = "<group>"; };
 		CA97BC101B0F7DF400877437 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
 		CA97BC111B0F7DFC00877437 /* ant.properties */ = {isa = PBXFileReference; lastKnownFileType = text; path = ant.properties; sourceTree = "<group>"; };
 		CA97BC121B0F7E0400877437 /* build.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = build.xml; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				CA97BC111B0F7DFC00877437 /* ant.properties */,
 				CA97BC121B0F7E0400877437 /* build.xml */,
 				CA97BC131B0F7E0C00877437 /* debug */,
+				CA54F46F211604EB009DC3B9 /* generator.cpp */,
 				CA97BC1F1B0F7EE300877437 /* layout */,
 				CA97BC141B0F7E1500877437 /* local.properties */,
 				CA97BC151B0F7E1E00877437 /* proguard-project.txt */,
@@ -64,6 +67,7 @@
 				CA97BC171B0F7E1E00877437 /* release */,
 				CAA820141CF9C7E200D8FDF6 /* run */,
 				CA97BC231B0F7EED00877437 /* src */,
+				CA54F46E211604CC009DC3B9 /* todo.txt */,
 				CA97BC211B0F7EE300877437 /* values */,
 			);
 			sourceTree = "<group>";
