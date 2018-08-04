@@ -1,0 +1,14 @@
+org.bibleconsultants.jezusredt
+
+
+
+
+https://stackoverflow.com/questions/14768191/how-do-i-read-the-file-content-from-the-internal-storage-android-app
+
+
+
+https://stackoverflow.com/questions/14624567/load-somefile-html-file-from-internal-storage-to-a-webview-of-an-app
+
+
+
+webview.loadURL();

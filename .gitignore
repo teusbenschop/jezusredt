@@ -1,0 +1,24 @@
+
+bin/AndroidManifest.xml
+bin/AndroidManifest.xml.d
+bin/build.prop
+bin/classes.dex
+bin/classes.dex.d
+bin/classes/org/bibleconsultants/jezusredt/BuildConfig.class
+bin/classes/org/bibleconsultants/jezusredt/MainActivity$1.class
+bin/classes/org/bibleconsultants/jezusredt/MainActivity.class
+bin/classes/org/bibleconsultants/jezusredt/R$attr.class
+bin/classes/org/bibleconsultants/jezusredt/R$drawable.class
+bin/classes/org/bibleconsultants/jezusredt/R$id.class
+bin/classes/org/bibleconsultants/jezusredt/R$layout.class
+bin/classes/org/bibleconsultants/jezusredt/R$string.class
+bin/classes/org/bibleconsultants/jezusredt/R.class
+bin/Jezus Redt-debug-unaligned.apk
+bin/Jezus Redt-debug-unaligned.apk.d
+bin/Jezus Redt-debug.apk
+bin/Jezus Redt.ap_
+bin/Jezus Redt.ap_.d
+bin/proguard.txt
+gen/org/bibleconsultants/jezusredt/BuildConfig.java
+gen/org/bibleconsultants/jezusredt/R.java
+gen/R.java.d
