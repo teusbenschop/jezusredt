@@ -12,16 +12,6 @@ export ANDROID_HOME=~/scr/android-sdk-macosx
 export PATH=$PATH:~/scr/android-sdk-macosx/platform-tools:~/scr/android-sdk-macosx/tools:~/scr/android-ndk-r10e
 
 
-# Fix this: [aapt] (skipping file '.htaccess' due to ANDROID_AAPT_IGNORE pattern '.*')
-# Rename all files ".htaccess" to "dot.htaccess".
-# This is going to be reverted in the Java code during installation.
-# find assets -type f -name '.*' | while read file
-# do
-#   basename="${file##*/}"
-#   mv "$file" "${file%/*}/dotdot.${basename#.}"
-# done
-
-
 # Clean binaries.
 ant clean
 EXIT_CODE=$?
@@ -44,5 +34,3 @@ EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then
   exit
 fi
-
-
