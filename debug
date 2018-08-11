@@ -13,18 +13,16 @@ export PATH=$PATH:~/scr/android-sdk-macosx/platform-tools:~/scr/android-sdk-maco
 
 
 # Compile and run the website generator.
-g++ -Wall -Wextra -pedantic -std=c++11 generator.cpp -o generator
+g++ -Wall -Wextra -pedantic -std=c++11 pugixml.cpp generator.cpp -o generator
 EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then
 exit
 fi
-pushd contents
-../generator
+./generator `realpath contents` `realpath assets`
 EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then
 exit
 fi
-popd
 
 
 exit

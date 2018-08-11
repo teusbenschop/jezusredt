@@ -9,6 +9,10 @@
 /* Begin PBXFileReference section */
 		CA54F46E211604CC009DC3B9 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		CA54F46F211604EB009DC3B9 /* generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = generator.cpp; sourceTree = "<group>"; };
+		CA6DF50921161D9C00EEFD09 /* html.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = html.cpp; sourceTree = "<group>"; };
+		CA6DF50A21161E0A00EEFD09 /* generator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = generator.h; sourceTree = "<group>"; };
+		CA6DF50C2116227500EEFD09 /* shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
+		CA6DF50D2116227500EEFD09 /* shared.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shared.cpp; sourceTree = "<group>"; };
 		CA97BC101B0F7DF400877437 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
 		CA97BC111B0F7DFC00877437 /* ant.properties */ = {isa = PBXFileReference; lastKnownFileType = text; path = ant.properties; sourceTree = "<group>"; };
 		CA97BC121B0F7E0400877437 /* build.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = build.xml; sourceTree = "<group>"; };
@@ -59,6 +63,10 @@
 				CA97BC121B0F7E0400877437 /* build.xml */,
 				CA97BC131B0F7E0C00877437 /* debug */,
 				CA54F46F211604EB009DC3B9 /* generator.cpp */,
+				CA6DF50A21161E0A00EEFD09 /* generator.h */,
+				CA6DF50921161D9C00EEFD09 /* html.cpp */,
+				CA6DF50D2116227500EEFD09 /* shared.cpp */,
+				CA6DF50C2116227500EEFD09 /* shared.h */,
 				CA97BC1F1B0F7EE300877437 /* layout */,
 				CA97BC141B0F7E1500877437 /* local.properties */,
 				CA97BC151B0F7E1E00877437 /* proguard-project.txt */,
