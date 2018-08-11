@@ -652,38 +652,6 @@ string sha256_hexits (const string& data)
 #define bl3p "bl3p"
 
 
-string trim (string s)
-{
-  if (s.length () == 0)
-    return s;
-  // Strip spaces, tabs, new lines, carriage returns.
-  size_t beg = s.find_first_not_of(" \t\n\r");
-  size_t end = s.find_last_not_of(" \t\n\r");
-  // No non-spaces
-  if (beg == string::npos)
-    return "";
-  return string (s, beg, end - beg + 1);
-}
-
-
-string str_replace (string search, string replace, string subject)
-{
-  size_t offposition = subject.find (search);
-  while (offposition != string::npos) {
-    subject.replace (offposition, search.length (), replace);
-    offposition = subject.find (search, offposition + replace.length ());
-  }
-  return subject;
-}
-
-
-string str2lower (string value)
-{
-  transform (value.begin(), value.end(), value.begin(), ::tolower);
-  return value;
-}
-
-
 string str2upper (string value)
 {
   transform (value.begin(), value.end(), value.begin(), ::toupper);
@@ -1214,40 +1182,6 @@ bool file_or_dir_exists (const string & path)
 {
   struct stat buffer;
   return (stat (path.c_str(), &buffer) == 0);
-}
-
-
-// Scans the directory for files it contains.
-vector <string> scandir (string folder)
-{
-  // Storage.
-  vector <string> files;
-  // Open folder and iterate over it.
-  DIR * dir = opendir (folder.c_str());
-  if (dir) {
-    struct dirent * direntry;
-    while ((direntry = readdir (dir)) != NULL) {
-      string name = direntry->d_name;
-      // Exclude short-hand directory names.
-      if (name == ".") continue;
-      if (name == "..") continue;
-      // Exclude developer temporal files.
-      if (name == ".deps") continue;
-      if (name == ".dirstamp") continue;
-      // Exclude macOS files.
-      if (name == ".DS_Store") continue;
-      // Store the name.
-      files.push_back (name);
-    }
-    closedir (dir);
-  }
-  // Sort the entries.
-  sort (files.begin(), files.end());
-  // Remove . and ..
-  array_remove (string("."), files);
-  array_remove (string(".."), files);
-  // Done.
-  return files;
 }
 
 

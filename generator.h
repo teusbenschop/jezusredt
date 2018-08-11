@@ -78,7 +78,7 @@ using namespace pugi;
 class Html
 {
 public:
-  Html (string title, string javascript);
+  Html (string title);
   void p ();
   void div (string id);
   void txt (string text);
@@ -103,7 +103,20 @@ void file_put_contents (string filename, string contents);
 string file_get_contents (string filename);
 string implode (vector <string>& values, string delimiter);
 vector <string> explode (string value, char delimiter);
-void create_html (string folder, string file);
+void create_html_page (string file);
+void create_html_index (vector <string> files);
+string trim (string s);
+vector <string> scandir (string folder);
+string get_extension (string & url, bool remove);
+string str_replace (string search, string replace, string subject);
+string str2lower (string value);
+
+
+template <typename T>
+void array_remove (T needle, vector <T> & haystack)
+{
+  haystack.erase (std::remove (haystack.begin(), haystack.end(), needle), haystack.end());
+}
 
 
 int main (int argc, char *argv[]);

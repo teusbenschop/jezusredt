@@ -65,7 +65,6 @@ string hmac_sha256_raw (string key_in, string data_in);
 string md5_raw (string data);
 string sha256_raw (const string& data);
 string sha256_hexits (const string& data);
-string trim (string s);
 string str_replace (string search, string replace, string subject);
 string str2lower (string value);
 string str2upper (string value);
@@ -126,7 +125,6 @@ string basename (string path);
 void file_put_contents (string filename, string contents);
 string file_get_contents (string filename);
 bool file_or_dir_exists (const string & path);
-vector <string> scandir (string folder);
 int filesize (const string & filename);
 string implode (vector <string>& values, string delimiter);
 vector <string> explode (string value, char delimiter);
@@ -149,12 +147,6 @@ vector <T> array_intersect (vector <T> a, vector <T> b)
     }
   }
   return result;
-}
-
-template <typename T>
-void array_remove (T needle, vector <T> & haystack)
-{
-  haystack.erase (std::remove (haystack.begin(), haystack.end(), needle), haystack.end());
 }
 
 void api_call_sequencer (atomic <long> & sequencer);

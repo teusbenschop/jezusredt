@@ -12,10 +12,9 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-  <!-- A target SDK version of 24 allows free-form resizing of the app making it feel more natural. -->
   <uses-sdk
     android:minSdkVersion="11"
-    android:targetSdkVersion="24"
+    android:targetSdkVersion="26"
   />
 
   <!-- Some Chromebooks don't support touch. -->

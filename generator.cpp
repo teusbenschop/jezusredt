@@ -20,13 +20,14 @@
 #include "generator.h"
 
 
+
 // The folder with the input files.
 string inputfolder;
 // The folder for the web output.
 string outputfolder;
 
 
-Html::Html (string title, string javascript)
+Html::Html (string title)
 {
   // <html>
   xml_node root_node = htmlDom.append_child ("html");
@@ -50,6 +51,7 @@ Html::Html (string title, string javascript)
   meta_node.append_attribute ("content") = "width=device-width, initial-scale=1.0";
   
   // Include possible JavaScript.
+  /*
   if (!javascript.empty ()) {
     
     // <script type="text/javascript" src="jquery.js"></script>
@@ -65,6 +67,7 @@ Html::Html (string title, string javascript)
     script2_node.append_attribute ("src") = javascript.c_str();
     script2_node.text ().set (" ");
   }
+   */
   
   // <body>
   bodyDomNode = root_node.append_child ("body");
@@ -226,14 +229,120 @@ vector <string> explode (string value, char delimiter)
 }
 
 
-void create_html (string folder, string file)
+void create_html_page (string file)
 {
+  string title (file);
+  string extension = get_extension (title, true);
+  Html html (title);
+  html.h (2, title);
+  html.p ();
+  html.a ("index.html", "Index");
   string path (inputfolder);
-  if (!folder.empty ()) path.append ("/" + folder);
   path.append ("/" + file);
   string contents = file_get_contents (path);
-  cout << contents << endl;
+  contents = trim (contents);
+  vector <string> lines = explode (contents, '\n');
+  for (auto line : lines) {
+    html.p ();
+    html.txt (line);
+  }
+  html.p ();
+  html.a ("index.html", "Index");
+  file = title;
+  file = str2lower (file);
+  file = str_replace (" ", "-", file);
+  html.save (file + ".html");
+}
 
+
+void create_html_index (vector <string> files) // Todo
+{
+  Html html ("");
+  html.h (2, "Jezus Redt");
+  for (auto file : files) {
+    // E.g. "filename.txt", remove the .txt bit.
+    string title (file);
+    get_extension (title, true);
+    file = title;
+    file = str2lower (file);
+    file = str_replace (" ", "-", file);
+    html.p ();
+    html.a (file + ".html", title);
+  }
+  html.save ("index.html");
+}
+
+
+string trim (string s)
+{
+  if (s.length () == 0) return s;
+  size_t beg = s.find_first_not_of(" \t\n\r");
+  size_t end = s.find_last_not_of(" \t\n\r");
+  if (beg == string::npos) return "";
+  return string (s, beg, end - beg + 1);
+}
+
+
+vector <string> scandir (string folder)
+{
+  // Storage.
+  vector <string> files;
+  // Open folder and iterate over it.
+  DIR * dir = opendir (folder.c_str());
+  if (dir) {
+    struct dirent * direntry;
+    while ((direntry = readdir (dir)) != NULL) {
+      string name = direntry->d_name;
+      // Exclude short-hand directory names.
+      if (name == ".") continue;
+      if (name == "..") continue;
+      // Exclude developer temporal files.
+      if (name == ".deps") continue;
+      if (name == ".dirstamp") continue;
+      // Exclude macOS files.
+      if (name == ".DS_Store") continue;
+      // Store the name.
+      files.push_back (name);
+    }
+    closedir (dir);
+  }
+  // Sort the entries.
+  sort (files.begin(), files.end());
+  // Remove . and ..
+  array_remove (string("."), files);
+  array_remove (string(".."), files);
+  // Done.
+  return files;
+}
+
+
+string get_extension (string & url, bool remove)
+{
+  string extension;
+  size_t pos = url.find_last_of (".");
+  if (pos != string::npos) {
+    extension = url.substr (pos + 1);
+    if (remove) url.erase (pos);
+  }
+  return extension;
+}
+
+
+string str_replace (string search, string replace, string subject)
+{
+  size_t offposition = subject.find (search);
+  while (offposition != string::npos) {
+    subject.replace (offposition, search.length (), replace);
+    offposition = subject.find (search, offposition + replace.length ());
+  }
+  return subject;
+}
+
+
+string str2lower (string value)
+{
+  transform (value.begin(), value.end(), value.begin(), ::tolower);
+  return value;
 }
 
 
@@ -242,6 +351,10 @@ int main (int argc, char *argv[])
   (void) argc;
   inputfolder = argv[1];
   outputfolder = argv[2];
-  create_html ("", "index.txt");
+  vector <string> files = scandir (inputfolder);
+  for (auto file : files) {
+    create_html_page (file);
+  }
+  create_html_index (files);
   return EXIT_SUCCESS;
 }
