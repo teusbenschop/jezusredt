@@ -5,6 +5,8 @@ import android.view.Menu;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebChromeClient;
+import android.content.Intent;
+import android.net.Uri;
 
 
 public class MainActivity extends Activity
@@ -21,10 +23,21 @@ public class MainActivity extends Activity
     webview.getSettings().setJavaScriptEnabled (true);
     webview.getSettings().setBuiltInZoomControls (true);
     webview.getSettings().setSupportZoom (true);
-    webview.setWebViewClient(new WebViewClient());
-    // Set high quality client.
-    webview.setWebChromeClient(new WebChromeClient() {
+    webview.setWebViewClient(new WebViewClient() {
+      @Override
+      public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        boolean externalUrl = (url.indexOf ("http") == 0);
+        if (externalUrl) {
+          Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse (url));
+          view.getContext().startActivity(intent);
+          return true;
+        } else {
+          return false;
+        }
+      }
     });
+    // Set high quality client.
+    //webview.setWebChromeClient(new WebChromeClient() {});
     webview.loadUrl ("file:///android_asset/index.html");
   }
 
@@ -45,5 +58,8 @@ public class MainActivity extends Activity
     // Otherwise defer to system default behavior.
     super.onBackPressed();
   }
+
   
+  
+
 }
