@@ -255,6 +255,7 @@ void create_html_page (string file)
   file = title;
   file = str2lower (file);
   file = str_replace (" ", "-", file);
+  file = str_replace ("?", "", file);
   html.save (file + ".html");
 }
 
@@ -270,6 +271,7 @@ void create_html_index (vector <string> files) // Todo
     file = title;
     file = str2lower (file);
     file = str_replace (" ", "-", file);
+    file = str_replace ("?", "", file);
     html.p ();
     html.a (file + ".html", title);
   }
