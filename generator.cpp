@@ -235,8 +235,8 @@ void create_html_page (string file)
   string extension = get_extension (title, true);
   Html html (title);
   html.h (2, title);
-  html.p ();
-  html.a ("index.html", "Index");
+  //html.p ();
+  //html.a ("index.html", "Index");
   string path (inputfolder);
   path.append ("/" + file);
   string contents = file_get_contents (path);
@@ -246,8 +246,8 @@ void create_html_page (string file)
     html.p ();
     html.txt (line);
   }
-  html.p ();
-  html.a ("index.html", "Index");
+  //html.p ();
+  //html.a ("index.html", "Index");
   file = title;
   file = str2lower (file);
   file = str_replace (" ", "-", file);
