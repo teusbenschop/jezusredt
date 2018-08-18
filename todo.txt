@@ -6,7 +6,3 @@ App search on the tags? Or full text search as well.
 
 En zeker alle links in de app doen, om Bijbels te krijgen of kopen.
 
-De links moeten werken, ze moeten de externe browser openen.
-De compiler verandert regels die beginnen met "http" in links.
-
-

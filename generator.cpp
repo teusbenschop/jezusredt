@@ -244,7 +244,11 @@ void create_html_page (string file)
   vector <string> lines = explode (contents, '\n');
   for (auto line : lines) {
     html.p ();
-    html.txt (line);
+    if (line.find ("http") == 0) {
+      html.a (line, "Meer informatie");
+    } else {
+      html.txt (line);
+    }
   }
   //html.p ();
   //html.a ("index.html", "Index");
