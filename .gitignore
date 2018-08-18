@@ -23,3 +23,4 @@ gen/org/bibleconsultants/jezusredt/BuildConfig.java
 gen/org/bibleconsultants/jezusredt/R.java
 gen/R.java.d
 generator
+*.xcuserstate
