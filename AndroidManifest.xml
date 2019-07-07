@@ -14,7 +14,7 @@
 
   <uses-sdk
     android:minSdkVersion="11"
-    android:targetSdkVersion="26"
+    android:targetSdkVersion="28"
   />
 
   <!-- Some Chromebooks don't support touch. -->
