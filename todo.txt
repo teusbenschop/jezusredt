@@ -6,3 +6,7 @@ App search on the tags? Or full text search as well.
 
 En zeker alle links in de app doen, om Bijbels te krijgen of kopen.
 
+Eventueel een enkele SQLite database bijvoegen als asset.
+Want die is makkelijk doorzoekbaar.
+En kan ook online komen te staan via een PHP of vergelijkbare website.
+
