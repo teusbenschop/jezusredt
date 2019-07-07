@@ -23,6 +23,7 @@ EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then
 exit
 fi
+rm generator
 
 
 # Clean binaries.
