@@ -24,3 +24,4 @@ gen/org/bibleconsultants/jezusredt/R.java
 gen/R.java.d
 generator
 *.xcuserstate
+*.bak
