@@ -25,3 +25,5 @@ gen/R.java.d
 generator
 *.xcuserstate
 *.bak
+*.apk
+*.d
