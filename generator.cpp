@@ -1,5 +1,5 @@
 /*
- Copyright (©) 2003-2017 Teus Benschop.
+ Copyright (©) 2017-2019 Teus Benschop.
  
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -125,16 +125,6 @@ void Html::img (string image)
 }
 
 
-// Adds a "Buy" button for the $coin.
-void Html::buy (string coin)
-{
-  xml_node button_node = currentPDomElement.append_child ("button");
-  string onclick = "buycoin('" + coin + "')";
-  button_node.append_attribute ("onclick") = onclick.c_str();
-  button_node.text ().set ("Buy");
-}
-
-
 // This gets and then returns the html text
 string Html::get ()
 {
@@ -235,8 +225,8 @@ void create_html_page (string file)
   string extension = get_extension (title, true);
   Html html (title);
   html.h (2, title);
-  //html.p ();
-  //html.a ("index.html", "Index");
+  html.p ();
+  html.a ("index.html", "Index");
   string path (inputfolder);
   path.append ("/" + file);
   string contents = file_get_contents (path);
