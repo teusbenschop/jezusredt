@@ -20,7 +20,6 @@
 #include "generator.h"
 
 
-
 // The folder with the input files.
 string inputfolder;
 // The folder for the web output.
@@ -49,25 +48,6 @@ Html::Html (string title)
   meta_node = headDomNode.append_child ("meta");
   meta_node.append_attribute ("name") = "viewport";
   meta_node.append_attribute ("content") = "width=device-width, initial-scale=1.0";
-  
-  // Include possible JavaScript.
-  /*
-  if (!javascript.empty ()) {
-    
-    // <script type="text/javascript" src="jquery.js"></script>
-    xml_node script1_node = headDomNode.append_child ("script");
-    script1_node.append_attribute ("type") = "text/javascript";
-    script1_node.append_attribute ("src") = "jquery.js";
-    script1_node.text ().set (" ");
-    
-    // <script type="text/javascript" src="xxxxx.js"></script>
-    xml_node script2_node = headDomNode.append_child ("script");
-    script2_node.append_attribute ("type") = "text/javascript";
-    javascript.append (".js");
-    script2_node.append_attribute ("src") = javascript.c_str();
-    script2_node.text ().set (" ");
-  }
-   */
   
   // <body>
   bodyDomNode = root_node.append_child ("body");
@@ -130,7 +110,7 @@ string Html::get ()
 {
   // Get the html.
   stringstream output;
-  htmlDom.print (output, "", format_raw);
+  htmlDom.print (output, "", format_indent);
   string html = output.str ();
   
   // Add html5 doctype.
