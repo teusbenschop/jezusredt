@@ -59,7 +59,18 @@ public class MainActivity extends Activity
     super.onBackPressed();
   }
 
-  
+  /*
+   The appearance of the app can be improved
+   for example through the newer DrawerLayout.
+   This was tried in 2019.
+   When going to publish the app to the Google Play Console,
+   the console said that the app will not be installable
+   on about 20% of the devices.
+   So if there's going to be evangelists with older telephones,
+   they would not be able to use this app.
+   For that reason the new DrawerLayout will not be used just now.
+   Perhaps later.
+   */
   
 
 }
