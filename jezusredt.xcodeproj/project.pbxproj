@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		CA005B7322D602AA00D3A072 /* generator.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generator.sh; sourceTree = "<group>"; };
 		CA54F46F211604EB009DC3B9 /* generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = generator.cpp; sourceTree = "<group>"; };
 		CA6DF50A21161E0A00EEFD09 /* generator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = generator.h; sourceTree = "<group>"; };
 		CA6DF50C2116227500EEFD09 /* shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 				CA97BC131B0F7E0C00877437 /* debug */,
 				CA54F46F211604EB009DC3B9 /* generator.cpp */,
 				CA6DF50A21161E0A00EEFD09 /* generator.h */,
+				CA005B7322D602AA00D3A072 /* generator.sh */,
 				CA97BC1F1B0F7EE300877437 /* layout */,
 				CA97BC141B0F7E1500877437 /* local.properties */,
 				CA97BC151B0F7E1E00877437 /* proguard-project.txt */,
