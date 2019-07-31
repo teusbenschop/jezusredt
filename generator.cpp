@@ -220,12 +220,13 @@ void create_html_page (string file)
       html.txt (line);
     }
   }
-  //html.p ();
-  //html.a ("index.html", "Index");
+  html.p ();
+  html.a ("index.html", "Index");
   file = title;
   file = str2lower (file);
   file = str_replace (" ", "-", file);
   file = str_replace ("?", "", file);
+  file = str_replace ("ë", "e", file);
   html.save (file + ".html");
 }
 
