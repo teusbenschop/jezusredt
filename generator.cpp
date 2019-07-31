@@ -199,6 +199,16 @@ vector <string> explode (string value, char delimiter)
 }
 
 
+string clean_filename (string file)
+{
+  file = str2lower (file);
+  file = str_replace (" ", "-", file);
+  file = str_replace ("?", "", file);
+  file = str_replace ("ë", "e", file);
+  return file;
+}
+
+
 void create_html_page (string file)
 {
   string title (file);
@@ -223,10 +233,7 @@ void create_html_page (string file)
   html.p ();
   html.a ("index.html", "Index");
   file = title;
-  file = str2lower (file);
-  file = str_replace (" ", "-", file);
-  file = str_replace ("?", "", file);
-  file = str_replace ("ë", "e", file);
+  file = clean_filename (file);
   html.save (file + ".html");
 }
 
@@ -240,9 +247,7 @@ void create_html_index (vector <string> files) // Todo
     string title (file);
     get_extension (title, true);
     file = title;
-    file = str2lower (file);
-    file = str_replace (" ", "-", file);
-    file = str_replace ("?", "", file);
+    file = clean_filename (file);
     html.p ();
     html.a (file + ".html", title);
   }
