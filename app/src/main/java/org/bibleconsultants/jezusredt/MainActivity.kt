@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         webview.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                val externalUrl = url!!.indexOf("http") === 0
+                val externalUrl = url?.indexOf("http") === 0
                 return if (externalUrl) {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                     view!!.context.startActivity(intent)
