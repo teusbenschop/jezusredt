@@ -1,5 +1,7 @@
 package org.bibleconsultants.jezusredt
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -16,9 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        // https://android.jlelse.eu/kickstarting-android-development-with-kotlin-goodbye-findviewbyid-6df19e02f378
-        //webview = WebView (this);
         // https://stackoverflow.com/questions/47872078/how-to-load-an-url-inside-a-webview-using-android-kotlin
+
         webview = findViewById(R.id.webview)
 
         // Set high quality client.
@@ -26,13 +27,32 @@ class MainActivity : AppCompatActivity() {
 
         webview.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                view?.loadUrl(url)
-                return true
+                val externalUrl = url!!.indexOf("http") === 0
+                return if (externalUrl) {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                    view!!.context.startActivity(intent)
+                    true
+                } else {
+                    false
+                }
             }
         }
 
         // Load contents.
         //webview.loadUrl ("file:///android_asset/index.html");
-        webview.loadUrl ("https://bibledit.org");
+        //webview.loadUrl ("https://bibledit.org");
+        webview.loadUrl ("file:///android_asset/index.html");
     }
+
+    override fun onBackPressed() {
+        // The Android back button navigates back in the web view.
+        // This is the behaviour people expect.
+        if (webview.canGoBack()) {
+            webview.goBack()
+            return
+        }
+        // Otherwise defer to system default behavior.
+        super.onBackPressed()
+    }
+
 }
