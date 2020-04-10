@@ -39,8 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Load contents.
-        //webview.loadUrl ("file:///android_asset/index.html");
-        //webview.loadUrl ("https://bibledit.org");
         webview.loadUrl ("file:///android_asset/index.html");
     }
 
