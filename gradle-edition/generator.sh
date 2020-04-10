@@ -7,7 +7,7 @@ EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then
 exit
 fi
-./generator `realpath contents` `realpath assets`
+./generator `realpath contents` `realpath app/src/main/assets`
 EXIT_CODE=$?
 if [ $EXIT_CODE != 0 ]; then
 exit
